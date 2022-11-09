@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(new application());
+  runApp(new MaterialApp(home : new application()));
 }
 
 class application extends StatefulWidget {
-  const application({Key? key}) : super(key: key);
 
   @override
   State<application> createState() => _applicationState();
@@ -14,64 +13,21 @@ class application extends StatefulWidget {
 class _applicationState extends State<application> {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'MyApplication',
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text('List View'),),
-          body: new ListView(
-            children: <Widget>[
-              new ListTile(
-                title: new Text('item1'),
-                trailing: new Icon(Icons.arrow_forward),
-              ),
-               new ListTile(
-                title: new Text('item2'),
-                trailing: new Icon(Icons.arrow_forward),
-              ),
-               new ListTile(
-                title: new Text('item3'),
-                trailing: new Icon(Icons.arrow_forward),
-              ),
-            ],
-          )
-        ),
+    return Scaffold(
      
+      body: new Stack(
+          mainAxisAlignment: MainAxisAlignment.center,
+        //alignment: Alignment.center,
+     
+        children: <Widget>[
+          new Card(color: Colors.amber, child: new Padding(padding: const EdgeInsets.all(200.0),),),
+          new Card(color: Colors.red, child: new Padding(padding: const EdgeInsets.all(130.0),),),
+          new Card(color: Colors.green, child: new Padding(padding: const EdgeInsets.all(80.0),),),
+          new Card(color: Colors.cyan, child: new Padding(padding: const EdgeInsets.all(45.0),),),
+          new Card(color: Colors.purple, child: new Padding(padding: const EdgeInsets.all(15.0),),),
+        
+        ],
+      ),
     );
   }
 }
-
-//row and column..
-// class application extends StatelessWidget {
-//   const application({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return new MaterialApp(
-//       title: "MyFlutterApplication",
-//       home: new Scaffold(
-//         appBar: new AppBar(
-//           title: new Text('Row & Col'),
-//         ),
-//         body: new Row(
-//            mainAxisAlignment: MainAxisAlignment.center,
-//           children: <Widget>[
-//            new Text('This '),
-//             new Column(
-//            mainAxisAlignment: MainAxisAlignment.center,
-//               children: <Widget>[
-//             new Text('This '),
-//             new Text('is '),
-//            // new Text('a '),
-//             new Text('Col list'),
-//               ],
-//             ),
-           
-//             // new Text('widget List '),
-//             new Text(' Row List '),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
