@@ -14,11 +14,11 @@ class application extends StatefulWidget {
 
 class _applicationState extends State<application> {
   @override
-  String ptext = ' ';
-  String btext = ' ';
-  void method1(String value) {
+  bool chkbool = false;
+  void method1(value) {
     setState(() {
-      btext = value;
+      chkbool = value;
+      print('$chkbool');
     });
   }
 
@@ -26,37 +26,18 @@ class _applicationState extends State<application> {
     return new MaterialApp(
       title: 'myApplication',
       home: new Scaffold(
-          appBar: new AppBar(
-            backgroundColor: Colors.red,
-            title: new Text('myApplication'),
-          ),
-          body: new Column(
-            children: <Widget>[
-              new TextField(
-                onChanged: (String txt) {
-                  setState(
-                    () {
-                      ptext = txt;
-                    },
-                  );
-                },
-                decoration: new InputDecoration(
-                    hintText: 'type here', labelText: 'Name'),
-              ),
-              new Text(ptext),
-              new RaisedButton(
-                onPressed: () {
-                  method1('You have pressed');
-                },
-                child: new Text('click'),
-              ),
-              new FlatButton(onPressed: () {
-                method1('fButton is pressed');
-              }, child: new Text('Fbutton'),),
-
-              new Text(btext),
-            ],
-          )),
+        appBar: new AppBar(
+          backgroundColor: Colors.red,
+          title: new Text('myApplication'),
+        ),
+        body: new Center(
+          child: new Checkbox(
+              value: chkbool,
+              onChanged: (cb) {
+                method1(cb);
+              },),
+        ),
+      ),
     );
   }
 }
